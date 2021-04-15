@@ -1,0 +1,9 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript", "vue", "typescript"],
+  "vetur.validation.template": false,
+  "editor.formatOnPaste": true,
+  "files.eol": "\n"
+}

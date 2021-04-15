@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="public/kity.min.js"></script>
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/main.ts"></script>
+    
+  </body>
+      <script src="public/kityminder.core.js"></script>
+      <script>
+        function downloadJson (data) {
+          const download = document.createElement('a') // 匿名a标签
+          const blob = new Blob([JSON.stringify(data)], {
+            type: 'text/plain;charset=utf-8'
+          })
+          const url = URL.createObjectURL(blob) // blob转url
+          download.href = url
+          download.download = 'export.json' // 文件名
+          download.click() // 触发下载
+        }
+      </script>
+</html>
