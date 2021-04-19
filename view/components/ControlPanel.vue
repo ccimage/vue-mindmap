@@ -31,18 +31,20 @@
         <StateButton type="primary" icon="el-icon-upload2" @click="dialogVisible = true" />
     </div>
     <div>
-        <el-dialog
-        title="导入json数据"
-        v-model="dialogVisible"
-        :before-close="handleClose">
-        <span>请粘贴json内容</span>
-        <el-input type="textarea" v-model="importJsonText" placeholder="Please input" @keydown="captureInput"></el-input>
-        <template #footer>
-            <span class="dialog-footer">
-            <el-button @click="dialogVisible = false">取消</el-button>
-            <el-button type="primary" @click="importJson()">导入</el-button>
-            </span>
-        </template>
+        <el-dialog title="导入json数据" v-model="dialogVisible" :before-close="handleClose">
+            <span>请粘贴json内容</span>
+            <el-input
+                type="textarea"
+                v-model="importJsonText"
+                placeholder="Please input"
+                @keydown="captureInput"
+            ></el-input>
+            <template #footer>
+                <span class="dialog-footer">
+                    <el-button @click="dialogVisible = false">取消</el-button>
+                    <el-button type="primary" @click="importJson()">导入</el-button>
+                </span>
+            </template>
         </el-dialog>
     </div>
 </template>
@@ -62,8 +64,8 @@ export default defineComponent({
     data() {
         return {
             dialogVisible: false,
-            importJsonText: ''
-        }
+            importJsonText: '',
+        };
     },
     computed: {
         isRootNode() {
@@ -155,11 +157,11 @@ export default defineComponent({
                 });
             }
         },
-        exportJson: function() {
+        exportJson: function () {
             const jsondata = window.km.exportJson();
             downloadJson(jsondata);
         },
-        importJson: function() {
+        importJson: function () {
             var text = this.importJsonText;
             if (!text) return;
             try {
@@ -169,12 +171,12 @@ export default defineComponent({
             }
             this.dialogVisible = false;
         },
-        handleClose: function() {
+        handleClose: function () {
             this.dialogVisible = false;
         },
-        captureInput: function(evt) {
+        captureInput: function (evt) {
             evt.stopPropagation();
-        }
+        },
     },
 });
 </script>
